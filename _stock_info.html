@@ -1,0 +1,74 @@
+{#
+
+    Készlet infó
+
+    A telephelyi készletinfóhoz az ERP konkrét készlet értékeket küld az adott telephelynek megfelelő paraméterbe.
+    Ez alapján jelenítjük meg, hogy az adott telephelyen elérhető-e (igen/nem) az adott termék.
+
+	Ezt a fájlt egy {% include 'stock_info.html' %} -el lehet elhelyezni a content_product_details_[n].html termék oldalon.
+
+#}                                    
+
+		{% if stock_available %}
+
+			{% if _context["param_" ~ common_vars.params.keszlet_raktar1 ~ "_value"] > 0 or 
+				_context["param_" ~ common_vars.params.keszlet_raktar2 ~ "_value"] > 0 or 
+				_context["param_" ~ common_vars.params.keszlet_raktar3 ~ "_value"] > 0 %}
+
+				<!-- Készlet infó eleje -->
+				<div class="fp-stock-info-container">
+
+					<div class="fp-stock-info fp-stock-info-title">Hol van raktáron?</div>
+
+					<!-- Készlet infó: raktar1 -->
+					<div class="fp-stock-info fp-stock-info-badge">
+						{% if _context["param_" ~ common_vars.params.keszlet_raktar1 ~ "_value"] > 0 %}
+							<span class="icon--b-on-stock fp-green"></span>
+							{% set stock_text = text.status_on_stock %}
+						{% else %}
+							<span class="icon--b-no-stock fp-red"></span>
+							{% set stock_text = text.status_no_stock %}
+						{% endif %}
+							<span>{{ text.custom.11 }}:</span>
+							<span class="fp-stock-info-text">{{ stock_text }}</span>                                              
+					</div>
+
+					<!-- Készlet infó: raktar2 -->
+					<div class="fp-stock-info fp-stock-info-badge">
+						{% if _context["param_" ~ common_vars.params.keszlet_raktar2 ~ "_value"] > 0 %}
+							<span class="icon--b-on-stock fp-green"></span>
+							{% set stock_text = text.status_on_stock %}
+						{% else %}
+							<span class="icon--b-no-stock fp-red"></span>
+							{% set stock_text = text.status_no_stock %}
+						{% endif %}
+							<span>{{ text.custom.13 }}:</span>
+							<span class="fp-stock-info-text">{{ stock_text }}</span>
+					</div>
+
+					<!-- Készlet infó: Nádor -->
+					<div class="fp-stock-info fp-stock-info-badge">
+						{% if _context["param_" ~ common_vars.params.keszlet_raktar3 ~ "_value"] > 0 %}
+							<span class="icon--b-on-stock fp-green"></span>
+							{% set stock_text = text.status_on_stock %}
+						{% else %}
+							<span class="icon--b-no-stock fp-red"></span>
+							{% set stock_text = text.status_no_stock %}
+						{% endif %}
+							<span>{{ text.custom.15 }}:</span>
+							<span class="fp-stock-info-text">{{ stock_text }}</span>
+					</div>
+
+
+				</div>
+				<!-- Készlet infó vége -->
+
+			{% endif %}
+
+		{% endif %}
+
+{#
+
+    Készlet infó vége
+
+#}
