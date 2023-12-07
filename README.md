@@ -1,12 +1,13 @@
 # Termékek telephelyi (raktári) elérhetőség megjelenítése UNAS webáruházban (TWIG)
 
 
-> A megvalósítás elég kezdetleges, ha rájövök hogyan lehet többdimenziós tömbökkel dolgozni a twig-ben és azokon lefuttatni egy ciklust, akkor majd le fogom egyszerűsíteni.
-
 A `_stock_info.html` fájlt egy `{% include 'stock_info.html' %}` -el lehet elhelyezni a `content_product_details_[n].html` termék oldalon.
-
 A `main.cfg` fájlban a `shop_config` részben a `text_custom_names` részben lehet beállítani az egyedi szövegek neveit a készletinformáció előtti szövegre, a többi kulcsú elemet pedig a raktárak nevére és a kiegészítő információra.
+Szintén a `main.cfg` fájlban a `common_vars` részben a `params` kulcs alatt lehet beállítani a raktárakhoz tartozó készletinformációkhoz tartozó paramétereket.
+A kapcsolódó CSS-t hozzá kell adni vagy a saját CSS-hez, vagy a sablon SCSS fájljához.
 
+
+**main.cfg**
 ```json
  "shop_config": {
         "text_custom_names": {
@@ -20,9 +21,7 @@ A `main.cfg` fájlban a `shop_config` részben a `text_custom_names` részben le
         }
     },
 ```
-
-Szintén a `main.cfg` fájlban a `common_vars` részben a `params` kulcs alatt lehet beállítani a raktárakhoz tartozó készletinformációkhoz tartozó paramétereket.
-
+**main.cfg**
 ```json
 
   "common_vars": {
@@ -34,9 +33,7 @@ Szintén a `main.cfg` fájlban a `common_vars` részben a `params` kulcs alatt l
 
 ```
 
-A kapcsolódó CSS-t hozzá kell adni vagy a saját CSS-hez, vagy a sablon SCSS fájljához.
-
-
+**CSS**
 ```css
 
 /* Készlet */
