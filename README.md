@@ -1,6 +1,5 @@
-# twig-unas-ce-stock
+# Termékek telephelyi (raktári) elérhetőség megjelenítése UNAS webáruházban (TWIG)
 
-A CloudERP egyes raktárainak elérhetőségét jeleníti meg a termékoldalon.
 
 > A megvalósítás elég kezdetleges, ha rájövök hogyan lehet többdimenziós tömbökkel dolgozni a twig-ben és azokon lefuttatni egy ciklust, akkor majd le fogom egyszerűsíteni.
 
